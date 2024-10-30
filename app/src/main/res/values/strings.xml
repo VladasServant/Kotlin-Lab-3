@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">lab3</string>
+    <string name="release_year">Release Year:</string>
+    <string name="model">Model:</string>
+    <string name="brand">Brand:</string>
+</resources>
