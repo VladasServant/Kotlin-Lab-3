@@ -11,17 +11,21 @@ import com.example.lab3.model.BrandData
 import com.example.lab3.model.ItemInterface
 import com.example.lab3.model.ModelData
 
-class PhoneAdapter(private var phoneList: List<ItemInterface>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class PhoneAdapter(private var phoneList: List<ItemInterface>, private val onEditClick: (ItemInterface) -> Unit, private val onDeleteClick: (ItemInterface) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class BrandViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val brandTextView: TextView = view.findViewById(R.id.textBrand)
         val foundedDateTextView: TextView = view.findViewById(R.id.textFoundedDate)
         val aboutCompanyTextView: TextView = view.findViewById(R.id.textAboutCompany)
+        val editButton: View = view.findViewById(R.id.buttonEdit)
+        val deleteButton: View = view.findViewById(R.id.buttonDelete)
     }
 
     inner class ModelViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val modelNameTextView: TextView = view.findViewById(R.id.textModelName)
         val releaseYearTextView: TextView = view.findViewById(R.id.textReleaseYear)
+        val editButton: View = view.findViewById(R.id.buttonEdit)
+        val deleteButton: View = view.findViewById(R.id.buttonDelete)
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -49,11 +53,27 @@ class PhoneAdapter(private var phoneList: List<ItemInterface>) : RecyclerView.Ad
                 brandHolder.brandTextView.text = item.brand
                 brandHolder.foundedDateTextView.text = item.foundedDate
                 brandHolder.aboutCompanyTextView.text = item.aboutCompany
+
+                brandHolder.editButton.setOnClickListener {
+                    onEditClick(item)
+                }
+
+                brandHolder.deleteButton.setOnClickListener {
+                    onDeleteClick(item)
+                }
             }
             is ModelData -> {
                 val modelHolder = holder as ModelViewHolder
                 modelHolder.modelNameTextView.text = item.modelName
                 modelHolder.releaseYearTextView.text = item.releaseYear
+
+                modelHolder.editButton.setOnClickListener {
+                    onEditClick(item)
+                }
+
+                modelHolder.deleteButton.setOnClickListener {
+                    onDeleteClick(item)
+                }
             }
         }
     }

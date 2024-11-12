@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextIdBrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Brand ID"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextModelName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Model Name" />
+
+    <EditText
+        android:id="@+id/editTextReleaseYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Release Year"
+        android:inputType="number" />
+
+</LinearLayout>
