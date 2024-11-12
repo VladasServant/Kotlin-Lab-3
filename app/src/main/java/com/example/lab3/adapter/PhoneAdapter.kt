@@ -1,12 +1,17 @@
-package com.example.lab3
+package com.example.lab3.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lab3.R
+import com.example.lab3.model.BrandData
+import com.example.lab3.model.ItemInterface
+import com.example.lab3.model.ModelData
 
-class PhoneAdapter(private val phoneList: List<ItemInterface>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class PhoneAdapter(private var phoneList: List<ItemInterface>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class BrandViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val brandTextView: TextView = view.findViewById(R.id.textBrand)
@@ -53,7 +58,11 @@ class PhoneAdapter(private val phoneList: List<ItemInterface>) : RecyclerView.Ad
         }
     }
 
-    override fun getItemCount(): Int {
-        return phoneList.size
+    override fun getItemCount(): Int = phoneList.size
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateItems(newItems: List<ItemInterface>) {
+        phoneList = newItems
+        notifyDataSetChanged()
     }
 }

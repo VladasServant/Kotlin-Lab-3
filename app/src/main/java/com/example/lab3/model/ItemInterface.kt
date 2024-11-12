@@ -1,4 +1,4 @@
-package com.example.lab3
+package com.example.lab3.model
 
 interface ItemInterface {
     fun getItemType(): Int
