@@ -1,11 +1,34 @@
 package com.example.lab3.repo
 
+import com.example.lab3.api.Api
+import com.example.lab3.api.RetrofitClient
 import com.example.lab3.dao.BrandDao
 import com.example.lab3.dao.ModelDao
 import com.example.lab3.model.BrandData
 import com.example.lab3.model.ModelData
 
 class Repo (private val modelDao: ModelDao, private val brandDao: BrandDao) {
+
+    private val AppRetrofitClient = RetrofitClient.getClient()
+    private val AppApi = AppRetrofitClient.create(Api::class.java)
+
+    suspend fun loadBrands(): List<BrandData>? {
+        val response = AppApi.getBrands()
+        return if (response.IsSuccessful) {
+            response.body()
+        } else {
+            null
+        }
+    }
+
+    suspend fun loadModels(): List<ModelData>? {
+        val response = AppApi.getModels()
+        return if (response.IsSuccessful) {
+            response.body()
+        } else {
+            null
+        }
+    }
 
     suspend fun insertBrand(brand: BrandData) {
         brandDao.insertBrand(brand)

@@ -1,10 +1,10 @@
 package com.example.lab3.model
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import com.squareup.moshi.Json
 
 @Entity (
     tableName = "models_table",
@@ -19,9 +19,9 @@ import androidx.room.PrimaryKey
 )
 data class ModelData(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    var modelName: String,
-    val releaseYear: String,
-    val idBrand: Int
+    @field:Json(name = "modelName") val modelName: String,
+    @field:Json(name = "releaseDate") val releaseYear: String,
+    @field:Json(name = "idBrand") val idBrand: Int
 ) : ItemInterface {
 
 

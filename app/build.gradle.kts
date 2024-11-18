@@ -44,6 +44,10 @@ dependencies {
     ksp("androidx.room:room-compiler:$room_version")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
