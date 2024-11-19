@@ -7,14 +7,14 @@ import com.example.lab3.dao.ModelDao
 import com.example.lab3.model.BrandData
 import com.example.lab3.model.ModelData
 
-class Repo (private val modelDao: ModelDao, private val brandDao: BrandDao) {
+class Repo (private val brandDao: BrandDao, private val modelDao: ModelDao) {
 
-    private val AppRetrofitClient = RetrofitClient.getClient()
-    private val AppApi = AppRetrofitClient.create(Api::class.java)
+    private val appRetrofitClient = RetrofitClient.getClient()
+    private val appApi = appRetrofitClient.create(Api::class.java)
 
     suspend fun loadBrands(): List<BrandData>? {
-        val response = AppApi.getBrands()
-        return if (response.IsSuccessful) {
+        val response = appApi.getBrands()
+        return if (response.isSuccessful) {
             response.body()
         } else {
             null
@@ -22,8 +22,8 @@ class Repo (private val modelDao: ModelDao, private val brandDao: BrandDao) {
     }
 
     suspend fun loadModels(): List<ModelData>? {
-        val response = AppApi.getModels()
-        return if (response.IsSuccessful) {
+        val response = appApi.getModels()
+        return if (response.isSuccessful) {
             response.body()
         } else {
             null

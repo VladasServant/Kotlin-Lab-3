@@ -5,12 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import androidx.room.Room
-import com.example.lab3.database.DataBase
 import com.example.lab3.model.BrandData
 import com.example.lab3.model.ItemInterface
 import com.example.lab3.model.ModelData
-import com.example.lab3.repo.Repo
 import kotlinx.coroutines.launch
 
 class MyViewModel (application: Application) : AndroidViewModel(application) {
@@ -26,8 +23,9 @@ class MyViewModel (application: Application) : AndroidViewModel(application) {
     init {
         viewModelScope.launch {
 
-//            repo.clearBrands()
-//            repo.clearModels()
+
+//           repo.clearBrands()
+//           repo.clearModels()
 
 //            val brands = listOf(
 //                BrandData(brand = "Apple",  foundedDate = "1976", aboutCompany = "is an American corporation based in Cupertino, California, that designs and develops consumer electronics, software, and online services. It is the first American company to surpass USD 1 trillion in market capitalisation. This happened during trading in the company's shares on 2 August 2018. On that day, the company also became the most valuable public company in history, surpassing the previous record holder, PetroChina. As of mid-June 2024, Apple continues to hold the title of the world's most valuable company, having displaced Microsoft from the top spot"),

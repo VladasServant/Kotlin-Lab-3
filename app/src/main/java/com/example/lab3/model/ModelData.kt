@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 data class ModelData(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @field:Json(name = "modelName") val modelName: String,
-    @field:Json(name = "releaseDate") val releaseYear: String,
+    @field:Json(name = "releaseYear") val releaseYear: String,
     @field:Json(name = "idBrand") val idBrand: Int
 ) : ItemInterface {
 

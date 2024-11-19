@@ -6,5 +6,5 @@ import com.example.lab3.repo.Repo
 
 class MainApp: Application() {
     private val database by lazy { DataBase.getDatabase(this) }
-    val appRepo by lazy { Repo(database.modelDao(), database.brandDao()) }
+    val appRepo by lazy { Repo(database.brandDao(), database.modelDao()) }
 }
